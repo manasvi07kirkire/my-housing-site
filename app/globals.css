@@ -1,0 +1,268 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Luxury Real Estate Design System - AURELIA ESTATES */
+:root {
+  /* Light mode - Warm ivory luxury palette */
+  --background: oklch(0.98 0.005 85);
+  --foreground: oklch(0.15 0.01 60);
+  --card: oklch(0.96 0.008 80);
+  --card-foreground: oklch(0.15 0.01 60);
+  --popover: oklch(0.98 0.005 85);
+  --popover-foreground: oklch(0.15 0.01 60);
+  --primary: oklch(0.15 0.01 60);
+  --primary-foreground: oklch(0.98 0.005 85);
+  --secondary: oklch(0.92 0.01 75);
+  --secondary-foreground: oklch(0.25 0.01 60);
+  --muted: oklch(0.94 0.008 80);
+  --muted-foreground: oklch(0.45 0.01 60);
+  --accent: oklch(0.75 0.12 70);
+  --accent-foreground: oklch(0.15 0.01 60);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.005 85);
+  --border: oklch(0.88 0.015 75);
+  --input: oklch(0.92 0.01 75);
+  --ring: oklch(0.75 0.12 70);
+  --radius: 0.5rem;
+  
+  /* Luxury gold accent */
+  --gold: oklch(0.78 0.14 75);
+  --gold-light: oklch(0.88 0.1 75);
+  --gold-dark: oklch(0.65 0.15 70);
+  
+  /* Architectural neutrals */
+  --stone: oklch(0.85 0.02 75);
+  --concrete: oklch(0.75 0.015 80);
+  --charcoal: oklch(0.25 0.01 60);
+}
+
+.dark {
+  /* Dark mode - Matte charcoal with warm lighting */
+  --background: oklch(0.12 0.01 60);
+  --foreground: oklch(0.95 0.01 80);
+  --card: oklch(0.16 0.012 55);
+  --card-foreground: oklch(0.95 0.01 80);
+  --popover: oklch(0.14 0.01 60);
+  --popover-foreground: oklch(0.95 0.01 80);
+  --primary: oklch(0.95 0.01 80);
+  --primary-foreground: oklch(0.12 0.01 60);
+  --secondary: oklch(0.22 0.015 55);
+  --secondary-foreground: oklch(0.92 0.01 80);
+  --muted: oklch(0.2 0.012 55);
+  --muted-foreground: oklch(0.65 0.01 75);
+  --accent: oklch(0.78 0.14 75);
+  --accent-foreground: oklch(0.12 0.01 60);
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(0.95 0.01 80);
+  --border: oklch(0.28 0.015 55);
+  --input: oklch(0.22 0.015 55);
+  --ring: oklch(0.78 0.14 75);
+  
+  /* Luxury gold accent */
+  --gold: oklch(0.8 0.15 75);
+  --gold-light: oklch(0.85 0.12 75);
+  --gold-dark: oklch(0.7 0.16 70);
+  
+  /* Architectural neutrals */
+  --stone: oklch(0.35 0.02 60);
+  --concrete: oklch(0.28 0.015 55);
+  --charcoal: oklch(0.18 0.01 60);
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Geist', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Geist Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-stone: var(--stone);
+  --color-concrete: var(--concrete);
+  --color-charcoal: var(--charcoal);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Custom scrollbar for luxury feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-dark);
+  }
+}
+
+/* Cinematic film grain overlay */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  animation: grain 0.5s steps(10) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+/* Ambient light effects */
+.ambient-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Cinematic vignette */
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(0,0,0,0.3) 100%);
+}
+
+/* Premium typography */
+.text-display {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.text-editorial {
+  font-family: var(--font-sans);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+/* Luxury button styles */
+.btn-luxury {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--foreground);
+  padding: 1rem 2.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-luxury:hover::before {
+  left: 100%;
+}
+
+.btn-luxury:hover {
+  background: var(--gold);
+  color: var(--background);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--gold);
+  color: var(--background);
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
